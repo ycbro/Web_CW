@@ -39,3 +39,10 @@ h1{
     min-height: 250px;
     z-index: 1;
 }
+
+.developers img{
+    width: 200px;
+    height: 200px;
+    display: inline;
+    align-items: center;
+}
