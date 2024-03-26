@@ -28,7 +28,7 @@ h1{
 .developers {
     position: absolute;
     display: flex;
-    top: 60%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     backdrop-filter: blur(10px);
@@ -37,7 +37,7 @@ h1{
     box-shadow: 0 0 25px 5px #000000FF;
     width: 75%;
     max-width: 1000px;
-    min-height: 250px;
+    min-height: 500px;
     z-index: 1;
     align-items: center;
 }
@@ -45,8 +45,20 @@ h1{
 .developers img{
     width: 200px;
     height: 200px;
-    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .developers h1{
-    margin-top: 0;
+    margin-left: 40%;
+    margin-top: -35%;
+}
+.profile_image{
+    display: flex;
+    margin-left: -55%;
+}
+.profile_image img {
+    margin: 20px;    
+}
+.profile_image p{
+    text-align: center;
 }
