@@ -37,7 +37,7 @@ h1{
     box-shadow: 0 0 25px 5px #000000FF;
     width: 75%;
     max-width: 1000px;
-    min-height: 500px;
+    min-height: 450px;
     z-index: 1;
     align-items: center;
 }
@@ -50,7 +50,7 @@ h1{
 }
 .developers h1{
     margin-left: 40%;
-    margin-top: -35%;
+    margin-top: -34%;
 }
 .profile_image{
     display: flex;
@@ -61,4 +61,48 @@ h1{
 }
 .profile_image p{
     text-align: center;
+    font-family: "Arial Black", Arial, sans-serif;
+    font-weight: bold;
+}
+
+.fish {
+    width: 100px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: swim 10s linear infinite;
+}
+
+.fish2 {
+    width: 100px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 100px;
+    top: 20%;
+    transform: translateY(-50%);
+    animation: swim2 10s linear infinite;
+}
+
+@keyframes swim {
+    0% {
+        left: -100px;
+    }
+    100% {
+        left: 89%;
+    }
+}
+
+@keyframes swim2 {
+    0% {
+        left: 89%;
+    }
+    100% {
+        left: 0%;
+    }
 }
