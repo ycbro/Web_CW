@@ -1,0 +1,56 @@
+*{
+  background-color: #a0c3f2;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: darkgrey;
+    text-align:center;
+    text-align: justify;
+    
+
+  }
+  
+  /* .conten-containor {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 100px;
+  } */
+  
+  .conten-section {
+    margin-bottom: 30px;
+  }
+  
+  h2 {
+    margin-top: 0;
+    margin-bottom: 10px; 
+  }
+  
+  img {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;    
+     width: 350px; /* Adjust the value as needed */
+     margin-right: 10px;
+     float: left;
+  }
+  
+  p {
+    line-height: 1.5;
+  }
+  
+  /* Adjust these styles for responsiveness (optional)
+  @media only screen and (max-width: 768px) {
+    .content-container {
+      width: 90%;
+    }
+  } */
+  
+.logo{
+    width: 200px;
+    height: 600px;
+    cursor: pointer;
+    margin-left: 40px;
+}

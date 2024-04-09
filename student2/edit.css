@@ -1,0 +1,89 @@
+.custom-pageeditor{
+    background-color: rgb(46, 74, 234);
+}
+
+.custome-home{
+    background-color:lavender;
+}
+
+
+body{
+    color: black;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url("Assets/pg editor bg (2).jpg");
+    background-size: cover;
+}
+
+.conten-main{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.navibar{
+    top: 0;
+    width: 100%;
+    margin: auto;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(0, 0, 0);
+    position: fixed;
+    z-index: 3;
+    left: 0;
+}
+.logo{
+    width: 80px;
+    height: auto;
+    cursor: pointer;
+    margin-left: 40px;
+}
+.navibar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0px 20px;
+    position: relative;
+    right: 50px;
+    top: 10px;
+}
+
+.navibar ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+}
+
+.navibar ul li::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background-color: transparent;
+    transition: width 0.3s ease; 
+}
+
+.navibar ul li:hover::after {
+    width: 100%; 
+    background-color: #2f5fffdf; 
+}
+
+.navibar ul li .active {
+    background-color: #3842fcdf;
+    padding: 10px;
+}
+
+.custom-pageeditor {
+    margin-top: 100px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 50px 0;
+    margin-top: 250px;
+    text-align: center;
+    bottom: 0%;
+    width: 100%;
+}
+

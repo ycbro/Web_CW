@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Feedback!!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="feedbackstyle.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <script src="feedback.js" defer></script>
+
+    <header>
+        <div class="navibar">
+            <img src="logo.png" class="logo">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Site map</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="Feedback.html" class="active">Feedback</a></li>
+                <li><a href="#">User profile</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <form action="" method="POST" id="feedback-form">
+        <div class="border">
+            <h1>Feedback Form</h1>
+            <table>
+                <tr>
+                    <td>
+                        <label>First name*</label>
+                        <br/>
+                        <input type="text" name="Firstname" class="txt" required>
+                    </td>
+                    <td>
+                        <label>Last name</label>
+                        <br/>
+                        <input type="text" name="Lastname" class="txt" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Email*</label>
+                        <br/>
+                        <input type="email" name="Email" class="txt" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label>How do you rate your experience</label>
+                        <br/>
+                        <input type="checkbox" name="rate" value="bad">Bad
+                        <input type="checkbox" name="rate" value="average">Average
+                        <input type="checkbox" name="rate" value="good">Good
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label>Is this your first visiting?</label>
+                        <br/>
+                        <input type="checkbox" name="visit" value="yes">yes
+                        <input type="checkbox" name="visit" value="no">no
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label>Did you find out informative things?</label>
+                        <br/>
+                        <input type="checkbox" name="informative" value="yes">yes
+                        <input type="checkbox" name="informative" value="no">no
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label>Would you recommend our services for you?</label>
+                        <br/>
+                        <input type="checkbox" name="recommend" value="yes">yes
+                        <input type="checkbox" name="recommend" value="no">no
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label>Comments</label>
+                        <br/>
+                        <textarea class="textarea"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="rating-box">
+                            <header>How was our services for you?</header>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="submit" class="button">Submit</button></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+    <div id="feedback-dialog" class="dialog">
+        <span class="close-btn">&times;</span>
+        <h2>Feedback Response</h2>
+        <p id="feedback-response"></p>
+      </div>
+    <div id="preview-container"></div>
+
+    <footer>
+        <p>Copyright &copy; </p>
+    </footer>
+</body>
+</html>

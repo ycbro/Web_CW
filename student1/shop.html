@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Shop</title>
+    <link rel="stylesheet" href="/css/shop.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        :root {
+            --main-color: #1ca3ec;
+            --bg-color: #fff;
+            --text-color: black;
+            --box-shadow: 2px 2px 10px 14px rgb(14 55 54/15%);
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--text-color);
+            scroll-padding-top: 4rem;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid black;
+            padding: 18px 100px;
+            background: var(--text-color);
+            transition: 0.5s linear;
+        }
+
+        .logo img {
+            width: 60px;
+        }
+
+        .navbar {
+            display: flex;
+        }
+
+        .navbar a {
+            padding: 8px 17px;
+            color: var(--bg-color);
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .navbar a:hover {
+            background-color: var(--main-color);
+            border-radius: 0.2rem;
+            transition: background-color 0.5s linear;
+        }
+
+        .header-icon {
+            font-size: 22px;
+            cursor: pointer;
+            z-index: 10000;
+            display: flex;
+            column-gap: 0.8rem;
+        }
+
+        .header-icon .bx {
+            color: var(--bg-color);
+        }
+
+        #menu-icon {
+            color: var(--bg-color);
+            font-size: 24px;
+            z-index: 100001;
+            cursor: pointer;
+            display: none;
+        }
+
+        .search-box {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translate(-50%);
+            background: var(--bg-color);
+            width: 100%;
+        }
+
+        .search-box.active {
+            top: 110%;
+            box-shadow: var(--box-shadow);
+            transition: 0.25s all linear;
+        }
+
+        .search-box input {
+            padding: 20px;
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 1rem;
+            color: var(--main-color);
+        }
+
+        .search-box input::placeholder {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+    </style>
+    <script>
+        let search = document.querySelector('.search-box');
+
+        document.querySelector('#Search-icon').onclick =()=>{
+        search.classList.toggle('active'); 
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">
+            <img src="logo.png"alt="">
+        </a>
+        <!--Menu Icon-->
+        <i class='bx bx-menu'id="menu-icon"></i>
+        <!--Links-->
+        <nav>
+            <ul class="navbar">
+                <li><a href="/home.html">Home</a></li>
+                <li><a href="/about.html">About us</a></li>
+                <li><a href="/sitemap.html">Site Map</a></li>
+                <li><a href="/gallery.html">Gallery</a></li>
+                <li><a href="/user.html">User Profile</a></li>
+                <li><a href="/Feedback.html">Feedback</a></li>
+            </ul>
+    
+        <div class="search-box">
+            <form>
+            <input type="search" placeholder="search Here......">
+            </form>
+         </div>  
+        </nav>
+        <!--Icons-->
+        <div class="header-icon">
+        <i class='bx bx-cart-alt'></i>
+        <i class='bx bx-search-alt-2' id="Search-icon"></i>
+        </div>
+      </header>
+<div id="products" class="products"></div>
+<div id="selected-image-box" class="selected-image-box"></div>
+<div class="card_cart" id="cart">
+    <h2>Basket</h2>
+    <div id="cart-items"></div>
+    <p>Total: <span id="cart-total">$0.00</span></p>
+    <button id="clear-cart">Clear Cart</button>
+    <button id="checkout">Checkout</button>
+</div>
+<!-- Add a modal for checkout -->
+<div id="checkout-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Checkout</h2>
+        <div id="order-summary" class="order-summary">
+            <h2>Order Summary</h2>
+            <div id="order-items"></div>
+            <p>Total: <span id="order-total">$0.00</span></p>
+        </div>
+        <form id="payment-form">
+            <h3>Payment Details</h3>
+            <label for="card-number">Card Number:</label>
+            <input type="number" id="card-number" name="card-number" required>
+            <label for="cardholder-name">Cardholder Name:</label>
+            <input type="text" id="cardholder-name" name="cardholder-name" required>
+            <label for="expire-date">Expire Date:</label>
+            <input type="number" id="expire-date-month" name="expire-date-month" placeholder="MM" required>
+            <input type="number" id="expire-date-year" name="expire-date-year" placeholder="YY" required>
+            <label for="ccv">CCV:</label>
+            <input type="number" id="ccv" name="ccv" required>
+            <button type="submit">Save & Submit</button>
+            <button type="button" id="clear-payment-fields">Clear Fields</button>
+        </form>
+        
+        
+        <form id="billing-address-form" style="display: none;">
+            <h3>Billing Address</h3>
+            <label for="address-line-1">Address<span>*</span></label>
+            <input type="text" id="address-line-1" name="address-line" required>
+            <label for="town-city">Town/City<span>*</span></label>
+            <input type="text" id="town-city" name="town-city" required>
+            <label for="state-country">State/Country</label>
+            <input type="text" id="state-country" name="state-country">
+            <label for="postcode-zipcode">Postcode/Zip Code<span>*</span></label>
+            <input type="number" id="postcode-zipcode" name="postcode-zipcode" required>
+            <label for="country">Country<span>*</span></label>
+            <select id="country" name="country" required>
+                <option value="">country</option>
+                <option value="AF">Afghanistan</option>
+                <option value="AX">Aland Islands</option>
+                <option value="AL">Albania</option>
+                <option value="DZ">Algeria</option>
+                <option value="AU">Australia</option>
+                <option value="AT">Austria</option>
+                <option value="CA">Canada</option>
+                <option value="DE">Germany</option>
+                <option value="IN">India</option>
+                <option value="MG">Madagascar</option>
+                <option value="MN">Mongolia</option>
+                <option value="NE">Niger</option>
+                <option value="NG">Nigeria</option>
+                <option value="PE">Peru</option>
+                <option value="PL">Poland</option>
+                <option value="PR">Puerto Rico</option>
+                <option value="RW">Rwanda</option>
+                <option value="KN">Saint Kitts and Nevis</option>
+                <option value="SC">Seychelles</option>
+                <option value="LK">Sri Lanka</option>
+                <option value="SZ">Swaziland</option>
+                <option value="SE">Sweden</option>
+                <option value="CH">Switzerland</option>
+                <option value="TZ">Tanzania, United Republic of</option>
+                <option value="TH">Thailand</option>
+            </select>
+            <button type="submit">Save & Submit</button>
+            <button type="button" id="clear-billing-address-fields">Clear Fields</button>
+        </form>
+
+        
+        <form id="contact-details-form" style="display: none;">
+            <h3>Contact Details</h3>
+            <label for="full-name">Full Name<span>*</span></label>
+            <input type="text" id="full-name" name="full-name" required>
+            <label for="email">Email Address<span>*</span></label>
+            <input type="email" id="email" name="email" required>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+            <button type="submit">Save & Submit</button>
+            <button type="button" id="clear-contact-details-fields">Clear Fields</button>
+        </form>
+    </div>
+</div>
+<div id="thank-message" style="display: none;">
+    <h2>Thank you for your purchase!</h2>
+    <p>Your order has been successfully processed.</p>
+</div>
+
+<script src="/js/shop.js"></script>
+</body>
+</html>
